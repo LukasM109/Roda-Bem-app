@@ -1,19 +1,21 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class CadastroPage extends StatefulWidget {
-  //const CadastroPage({key}) : super(key: key);
+class CadastroFrete extends StatefulWidget {
+  //const CadastroFrete({ key }) : super(key: key);
 
   @override
-  _CadastroPageState createState() => _CadastroPageState();
+  _CadastroFreteState createState() => _CadastroFreteState();
 }
 
-class _CadastroPageState extends State<CadastroPage> {
+class _CadastroFreteState extends State<CadastroFrete> {
   String nome = '';
-  String cpf = '';
-  String email = '';
-  String senha = '';
-
+  String tituloanuncio = '';
+  String tipocaminhao = '';
+  String origem = '';
+  String destino = '';
+  String tipocarga = '';
+  String tipofrete = '';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,8 +29,8 @@ class _CadastroPageState extends State<CadastroPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
-                  width: 200,
-                  height: 200,
+                  width: 20,
+                  height: 20,
                 ),
                 TextField(
                   onChanged: (text) {
@@ -42,43 +44,73 @@ class _CadastroPageState extends State<CadastroPage> {
                 SizedBox(height: 30),
                 TextField(
                   onChanged: (text) {
-                    cpf = text;
+                    tituloanuncio = text;
                   },
-                  keyboardType: TextInputType.numberWithOptions(),
                   decoration: InputDecoration(
-                    labelText: 'CPF/CNPJ',
+                    labelText: 'Título do Anúncio',
                     border: OutlineInputBorder(),
                   ),
                 ),
                 SizedBox(height: 30),
                 TextField(
                   onChanged: (text) {
-                    email = text;
+                    tipocaminhao = text;
                   },
-                  keyboardType: TextInputType.emailAddress,
                   decoration: InputDecoration(
-                    labelText: 'Email',
+                    labelText: 'Tipo do Caminhão',
                     border: OutlineInputBorder(),
                   ),
                 ),
                 SizedBox(height: 30),
                 TextField(
                   onChanged: (text) {
-                    senha = text;
+                    origem = text;
                   },
-                  obscureText: true,
                   decoration: InputDecoration(
-                    labelText: 'Senha',
+                    labelText: 'Origem',
                     border: OutlineInputBorder(),
                   ),
                 ),
-                SizedBox(height: 10),
+                SizedBox(height: 30),
+                TextField(
+                  onChanged: (text) {
+                    destino = text;
+                  },
+                  decoration: InputDecoration(
+                    labelText: 'Destino',
+                    border: OutlineInputBorder(),
+                  ),
+                ),
+                SizedBox(height: 30),
+                TextField(
+                  onChanged: (text) {
+                    tipocarga = text;
+                  },
+                  decoration: InputDecoration(
+                    labelText: 'Tipo de Carga',
+                    border: OutlineInputBorder(),
+                  ),
+                ),
+                SizedBox(height: 30),
+                TextField(
+                  onChanged: (text) {
+                    tipofrete = text;
+                  },
+                  decoration: InputDecoration(
+                    labelText: 'Tipo de Frete',
+                    border: OutlineInputBorder(),
+                  ),
+                ),
+                SizedBox(height: 30),
                 ElevatedButton(
                     onPressed: () {
                       if (nome != '' &&
-                          cpf != '' &&
-                          email != '' &&
-                          senha != '') {
+                          tituloanuncio != '' &&
+                          tipocaminhao != '' &&
+                          origem != '' &&
+                          destino != '' &&
+                          tipocarga != '' &&
+                          tipofrete != '') {
                         Navigator.of(context)
                             .pushReplacementNamed('/ComEstado');
                       }

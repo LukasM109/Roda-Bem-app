@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:roda_bem_app/cadastro.dart';
+import 'package:roda_bem_app/cadfrete.dart';
 import 'package:roda_bem_app/login.dart';
 
 import 'ComEstado.dart';
@@ -16,7 +17,7 @@ class Home extends StatelessWidget {
         animation: Tema.intance,
         builder: (context, child) {
           return MaterialApp(
-            home: CadastroPage(),
+            home: LoginPage(),
             theme: ThemeData(
               brightness:
                   Tema.intance.isThemeDark ? Brightness.dark : Brightness.light,

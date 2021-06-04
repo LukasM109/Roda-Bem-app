@@ -64,7 +64,11 @@ class _LoginPageState extends State<LoginPage> {
                   },
                   child: Text('Login '),
                 ),
-                ElevatedButton(onPressed: null, child: Text('Cadastrar'))
+                ElevatedButton(
+                    onPressed: () {
+                      Navigator.of(context).pushReplacementNamed('cadastro');
+                    },
+                    child: Text('Cadastrar'))
               ],
             ),
           ),

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:roda_bem_app/cadastro.dart';
+import 'package:roda_bem_app/login.dart';
 
 import 'ComEstado.dart';
 import 'Tema.dart';
@@ -14,12 +16,17 @@ class Home extends StatelessWidget {
         animation: Tema.intance,
         builder: (context, child) {
           return MaterialApp(
-              home: ComEstado(),
-              theme: ThemeData(
-                brightness: Tema.intance.isThemeDark
-                    ? Brightness.dark
-                    : Brightness.light,
-              ));
+            home: CadastroPage(),
+            theme: ThemeData(
+              brightness:
+                  Tema.intance.isThemeDark ? Brightness.dark : Brightness.light,
+            ),
+            initialRoute: '/',
+            routes: {
+              '/ComEstado': (context) => ComEstado(),
+              //'/': (context) => LoginPage(),
+            },
+          );
         });
   }
 }

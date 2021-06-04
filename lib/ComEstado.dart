@@ -14,32 +14,69 @@ class Estado extends State<ComEstado> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text("Roda Bem"),
-          actions: [
+      drawer: Drawer(
+        child: Column(
+          children: [
+            UserAccountsDrawerHeader(
+              currentAccountPicture: ClipRRect(
+                  borderRadius: BorderRadius.circular(40),
+                  child: Image.asset('assets/images/foto.jpg')),
+              accountName: Text('Lukas'),
+              accountEmail: Text('lukas109@gmail.com'),
+            ),
+            ListTile(
+              leading: Icon(Icons.home),
+              title: Text('Início'),
+              onTap: () {
+                Navigator.of(context).pushReplacementNamed('/ComEstado');
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.add_business),
+              title: Text('Nova Publicação'),
+              /*onTap: () {
+                  Navigator.of(context).pushReplacementNamed('/');
+                }*/
+            ),
+            ListTile(
+              leading: Icon(Icons.exit_to_app),
+              title: Text('Sair'),
+              onTap: () {
+                Navigator.of(context).pushReplacementNamed('/');
+              },
+            ),
+          ],
+        ),
+      ),
+      appBar: AppBar(
+        title: Text("Roda Bem"),
+        actions: [
+          MeuSwitcher(),
+        ],
+      ),
+      body: Container(
+        width: double.infinity,
+        height: double.infinity,
+        child: ListView(
+          //mainAxisAlignment: MainAxisAlignment.center,
+          //crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Text('Publicação: $cont'),
+            MeuSwitcher(),
+            Text('Contador: $cont'),
             MeuSwitcher(),
           ],
         ),
-        body: Container(
-          width: double.infinity,
-          height: double.infinity,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            //crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              Text('Contador: $cont'),
-              MeuSwitcher(),
-            ],
-          ),
-        ),
-        floatingActionButton: FloatingActionButton(
+      ),
+      /*floatingActionButton: FloatingActionButton(
           child: Icon(Icons.add),
           onPressed: () {
             setState(() {
               cont++;
             });
           },
-        ));
+        )*/
+    );
   }
 }
 
